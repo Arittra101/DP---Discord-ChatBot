@@ -73,6 +73,9 @@ client.on("messageCreate", async (msg) => {
   }
 });
 
+// console.log(process.env.port);
+let token = process.env.port;
+console.log(typeof token)
 client.login(
-  "MTE5NTY5MDIyMTcyODE5MDU4NA.GJV5oj.lvSv8r6RH5rKc8Fk78fYqTo_4KPmvzNSSdPDxw"
+  token
 );
