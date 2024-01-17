@@ -48,7 +48,7 @@ client.on("messageCreate", async (msg) => {
 
 
       try{
-        if (msg.attachments.first().contentType.indexOf("image") >= 0) {
+        if (filter == "#textToimage" && msg.attachments.first().contentType.indexOf("image") >= 0) {
           //msg.reply(`<@${msg.author.id}>! Please Attach a image`);
           try {
             if (msg.attachments.first().contentType.indexOf("image") >= 0) {
