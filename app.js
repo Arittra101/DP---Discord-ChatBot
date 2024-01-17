@@ -25,7 +25,6 @@ client.on("messageCreate", async (msg) => {
   
   if (!msg.author.bot) {
     let filter = getMsgFromClient.toLowerCase().replace(" ", "").trim();
-    0;
 
        //pokup the bot
       if (filter == "#heydp") {
@@ -46,9 +45,11 @@ client.on("messageCreate", async (msg) => {
         msg.reply(`Welcome Bro <@${msg.author.id}>! Nice to meet you :)`);
       }
 
-
+     
       try{
-        if (filter == "#textToimage" && msg.attachments.first().contentType.indexOf("image") >= 0) {
+    
+
+        if (filter.indexOf("#imagetotext")>=0 && msg.attachments.first().contentType.indexOf("image") >= 0) {
           //msg.reply(`<@${msg.author.id}>! Please Attach a image`);
           try {
             if (msg.attachments.first().contentType.indexOf("image") >= 0) {
