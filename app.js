@@ -47,27 +47,32 @@ client.on("messageCreate", async (msg) => {
       }
 
 
-
-      //condition for image to text
-      if (filter == "#texttoimage" && msg.attachments.first().contentType.indexOf("image") >= 0) {
-        //msg.reply(`<@${msg.author.id}>! Please Attach a image`);
-        try {
-          if (msg.attachments.first().contentType.indexOf("image") >= 0) {
-            let imageUrl = msg.attachments.first().url;
-            const { data } = await Tesseract.recognize(
-              imageUrl,
-              'eng',
-              {  }
-          );
-            msg.reply(` <@${msg.author.id}> Here is your output:\n ${data.text}`);
+      try{
+        if (msg.attachments.first().contentType.indexOf("image") >= 0) {
+          //msg.reply(`<@${msg.author.id}>! Please Attach a image`);
+          try {
+            if (msg.attachments.first().contentType.indexOf("image") >= 0) {
+              let imageUrl = msg.attachments.first().url;
+              const { data } = await Tesseract.recognize(
+                imageUrl,
+                'eng',
+                {  }
+            );
+              msg.reply(` <@${msg.author.id}> Here is your output:\n ${data.text}`);
+            }
+          } catch (e) {
+            //console.log(e);
           }
-        } catch (e) {
-          //console.log(e);
         }
       }
+      catch(e){
+        console.log(e);
+      }
+      //condition for image to text
+
   }
 });
 
 client.login(
-  "MTE5NTY5MDIyMTcyODE5MDU4NA.GO5YLb.dZcPhpdixtM8eBuYkxdXm2esUjsDKijoKzAtWw"
+  "MTE5NTY5MDIyMTcyODE5MDU4NA.GJV5oj.lvSv8r6RH5rKc8Fk78fYqTo_4KPmvzNSSdPDxw"
 );
